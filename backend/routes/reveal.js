@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.post('/reveal', function(req, res, next) {  
-    //const name = req.body.name
+router.post('/', function(req, res, next) {  
+    const name = req.body.name
     console.log(name)
-    res.send("Working")
+    console.log('got in here')
+    res.json("Working")
 });
 
 module.exports = router;

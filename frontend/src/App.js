@@ -11,7 +11,7 @@ function App() {
     event.preventDefault();
     console.log(name)
     const formData = new FormData();
-    formData.append('name', name)
+    formData.append("name", name)
     console.log(formData);
     fetch("/reveal", {
       method: "POST",
@@ -22,7 +22,7 @@ function App() {
         console.log(data)
       })
       .catch((error) => {
-        console.log('error')
+        console.log(error)
       });
   };
 
