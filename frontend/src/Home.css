@@ -1,0 +1,37 @@
+.center {
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 10px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 10px;
+  align-items: center;
+}
+input {
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 25px;
+}
+button {
+  width: 50%;
+  margin: 0 auto;
+}
+#welcome {
+  font-size: 35px;
+  text-align: center;
+}
+i {
+  margin-right: 12px;
+}

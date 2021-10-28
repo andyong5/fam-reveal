@@ -1,0 +1,21 @@
+.loose{
+    color:#2f4cf5;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flip{
+-webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+#name{
+    font-size: 40px;
+}
+.vertical{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
