@@ -1,35 +1,25 @@
-import "./App.css";
-import React from "react";
-import Home from "./Home";
-import Loose from "./Loose";
-import Tight from "./Tight";
-import Close from "./Close";
-import Test from "./Test";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import "./App.css";
+import Home from "./Home";
+import Reveal from "./Reveal"
 
 function App() {
+  const [appName, setAppName] = useState("Andy Nguyen");
+  const [appFam, setAppFam] = useState("Tight");
+
   return (
     <Router>
       <Switch>
-        <Route path="/work">
-          <Test />
-        </Route>
-        <Route path="/loose">
-          <Loose />
-        </Route>
-        <Route path="/tight">
-          <Tight />
-        </Route>
-        <Route path="/close">
-          <Close />
+        <Route path="/reveal">
+          <Reveal  appName={appName} appFam={appFam}/>
         </Route>
         <Route path="/">
-          <Home />
+          <Home setAppName={setAppName} setAppFam={setAppFam}/>
         </Route>
       </Switch>
     </Router>

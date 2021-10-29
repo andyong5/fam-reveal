@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import './Home.css';
+import React, { useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
+import "./Home.css";
 
-function Home() {
-  const [name, setName] = useState("")
-
-  useEffect(() => {
-    setName("");
-  },[]);
+function Home({setAppName, setAppFam}) {
+  const [name, setName] = useState("");
+  const [error, setError] = useState(false);
+  const [inputClass, setInputClass] = useState("nes-input");
+  const history = useHistory();
 
   const handleSubmission = (event) => {
     event.preventDefault();
-    console.log(name)
+    console.log(name);
     const formData = new FormData();
-    formData.append("name", name)
+    formData.append("name", name);
     console.log(formData);
     fetch("/reveal", {
       method: "POST",
@@ -20,17 +20,25 @@ function Home() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        window.location = data.redirect;
+        if('message' in data){
+          setError(true)
+          setInputClass("nes-input is-error")
+        } else {
+          console.log(data);
+          setError(false);
+          setInputClass("nes-input");
+          history.push("/reveal", {params: data})
+        }
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
+        console.log('got in here')
+        setError(true)
       });
   };
 
-
   return (
-    <div class="test">
+    <div class="work">
       <div class="center">
         <div class="nes-container is-rounded">
           <p class="title" id="welcome">
@@ -47,18 +55,22 @@ function Home() {
             <div class="nes-field">
               <input
                 type="text"
-                class="nes-input"
+                class={inputClass}
                 placeholder="Your Name"
-                onChange={e => setName(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
                 required
               ></input>
-              <br></br>
+              {error ? (
+                <label class="nes-text is-error" id="error">
+                  Wrong name. Please try again.
+                </label>
+              ) : null}
             </div>
-            <button type="button" class="nes-btn is-success" type="submit">
+            <button type="button" class="nes-btn is-success" type="submit" id="reveal_btn">
               Reveal!
             </button>
+            <i class="nes-pokeball is-small"></i>
           </form>
-          <i class="nes-pokeball is-small"></i>
         </div>
       </div>
     </div>

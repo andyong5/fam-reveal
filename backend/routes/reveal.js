@@ -5,15 +5,19 @@ router.post('/', function(req, res, next) {
     
     const fams = 
     {
-        'andy nguyen': 'tight',
-        'ally tran': 'close',
-        'kyle chan': 'loose'
+        'ANDY NGUYEN': 'Tight',
+        'ALLY TRAN': 'Close',
+        'KYLE CHAN': 'Loose'
     } 
     var name = req.body.name;
-    var name = name.toLowerCase();
+    var name = name.toUpperCase();
     console.log(name);
     console.log('got in here');
-    res.json({'redirect':'/' + fams[name]})
+    if(!fams.hasOwnProperty(name)){
+        console.log('Invalid name')
+        res.status(400).send({message: 'Invalid name'});
+    }
+    res.json({'name':name, 'fam': fams[name]})
 });
 
 module.exports = router;
