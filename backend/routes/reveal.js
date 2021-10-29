@@ -5,9 +5,27 @@ router.post('/', function(req, res, next) {
     
     const fams = 
     {
-        'ANDY NGUYEN': 'Tight',
-        'ALLY TRAN': 'Close',
-        'KYLE CHAN': 'Loose'
+        'ALEC MARISCAL': 'Tight',
+        'CALVIN LIN': 'Tight',
+        'JEFFERY ZHU': 'Tight',
+        'JOEY SIU': 'Tight',
+        'KOJI LO': 'Tight',
+        'MANDY XIA': 'Tight',
+        'AUDREY YEUNG': 'Close',
+        'AMBERLY HACKMANN': 'Close',
+        'NATHAN CHAN': 'Close',
+        'LANI LAM': 'Close',
+        'LOUIS GUO': 'Close',
+        'CRYSTAL DANG': 'Close',
+        'AMY NGUYEN': 'Loose',
+        'CHRISTOPHER HACKETT': 'Loose',
+        'ERICA TAM': 'Loose',
+        'ISABELLA LEE': 'Loose',
+        'JULIAN ATALIT': 'Loose',
+        'KELLY ZHU': 'Loose',
+        'SABRINA CHANG': 'Loose',
+        'LUKE CHEN': 'Loose',
+        'SEAN ARALAR': 'Loose'
     } 
     var name = req.body.name;
     var name = name.toUpperCase();
