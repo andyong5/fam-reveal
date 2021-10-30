@@ -20,10 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(fileupload())
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
 });
 
 
@@ -37,6 +37,9 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
+const port = process.env.PORT || 9000;
+app.listen(port);
 
 // error handler
 app.use(function(err, req, res, next) {
