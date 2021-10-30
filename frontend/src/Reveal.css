@@ -1,0 +1,16 @@
+.Tight{
+    color:#c9182a; 
+}
+.Close{
+    color:#1f871f
+}
+.Loose{
+    color:#2f4cf5;
+}
+.margin{
+    margin:15px;
+    width: 100px;
+}
+#name{
+    text-transform: uppercase;
+}

@@ -1,0 +1,35 @@
+body {
+  background-image: url('https://cdn.fbsbx.com/v/t59.2708-21/249627346_275731004450043_215853658982205380_n.gif?_nc_cat=109&ccb=1-5&_nc_sid=041f46&_nc_ohc=bHa9swCbowkAX8h8guF&_nc_ht=cdn.fbsbx.com&oh=1f9165cc8b4cc3d8a1962fea71f4b5fd&oe=617BCDFE');
+  background-size: cover;
+}
+img{
+  width: 100%;
+  height: auto;
+}
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+body {
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+.work{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
+    width: 60%;
+}
