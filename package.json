@@ -24,7 +24,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "node backend/app.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
