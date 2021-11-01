@@ -1,0 +1,38 @@
+.narrow {
+  width: 250px;
+}
+.add_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.add_btn {
+  margin-top: 20px;
+  width: 30%;
+  margin-bottom: 5px;
+}
+.tableFixHead {
+  overflow-y: auto;
+  height: 350px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+}
+.name_input{
+    font-size: 15px;
+    width: 100%;
+}
+.center_fam{
+    text-align: center;
+}

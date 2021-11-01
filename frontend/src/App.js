@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import "./App.css";
+import Home from "./Home";
+import Reveal from "./Reveal";
+import Add from './Add';
 
 function App() {
+  const [appName, setAppName] = useState("Andy Nguyen");
+  const [appFam, setAppFam] = useState("Tight");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/add" exact>
+          <Add />
+        </Route>
+        <Route path="/reveal" exact>
+          <Reveal  appName={appName} appFam={appFam}/>
+        </Route>
+        <Route path="/" exact>
+          <Home setAppName={setAppName} setAppFam={setAppFam}/>
+        </Route>
+        <Route path="/" render={() => <div>404</div>}>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
