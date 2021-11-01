@@ -2,12 +2,29 @@
 import "./Pledges.css";
 
 function Pledges({ pledges, setPledges }) {
-  const deleteRow = (event) =>{
-    
-  }
-  const deleteAll = (event) =>{
+  const deleteRow = name => (event) => {
+    let items = pledges.filter(pledge => pledge.name  !== name);
+    setPledges(items);
+
+    const formData = new FormData();
+    formData.append("name", name);
+    console.log(formData);
     fetch("/delete", {
       method: "DELETE",
+      "Content-Type": "application/json;charset=utf-8",
+      body: formData
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const deleteAll = (event) =>{
+    fetch("/delete", {
+      method: "DELETE"
     })
       .then((response) => response.json())
       .then((data) => {
@@ -47,7 +64,7 @@ function Pledges({ pledges, setPledges }) {
                     </td>
                     <td class="center_fam">{family}</td>
                     <td>
-                      <button type="button" class="nes-btn is-error">
+                      <button type="button" class="nes-btn is-error" onClick={deleteRow(name)}>
                         Delete
                       </button>
                     </td>

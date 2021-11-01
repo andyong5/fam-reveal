@@ -22,7 +22,7 @@ function Reveal() {
     if (fam === "Close") {
       setPokemon("nes-bulbasaur");
     }
-  });
+  },[]);
 
   function handleClick() {
     history.push("/");

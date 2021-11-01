@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import "./Home.css";
 
-function Home(  ) {
+function Home() {
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
   const [inputClass, setInputClass] = useState("nes-input");

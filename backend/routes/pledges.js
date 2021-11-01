@@ -29,7 +29,7 @@ router.get('/', async(req, res, next) => {
     ]
     const result = await pool.query('select * from pledges');
     console.log(result.rows);
-    res.json(result.rows)
+    res.json(result.rows.reverse());
 });
 
 module.exports = router;
