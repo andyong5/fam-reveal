@@ -57,7 +57,7 @@ i {
 #error{
   margin-top: 10px;
 }
-#reveal_btn{
+.reveal_btn{
   margin-top: 30px;
   margin-bottom: 30px;
 }

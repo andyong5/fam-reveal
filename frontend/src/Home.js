@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import "./Home.css";
 
-function Home({setAppName, setAppFam}) {
+function Home() {
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
   const [inputClass, setInputClass] = useState("nes-input");
@@ -66,7 +66,7 @@ function Home({setAppName, setAppFam}) {
                 </label>
               ) : null}
             </div>
-            <button type="button" class="nes-btn is-success" type="submit" id="reveal_btn">
+            <button type="button" class="nes-btn is-success reveal_btn" type="submit">
               Reveal!
             </button>
             <i class="nes-pokeball is-small"></i>

@@ -1,19 +1,17 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 const fileupload = require('express-fileupload')
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 const revealRouter = require('./routes/reveal');
 const addRouter = require('./routes/add');
-<<<<<<< HEAD
-=======
-
->>>>>>> ae6be967d0710c4845bf45fb35a0890c0b783abd
-const app = express();
+const pledgesRouter = require('./routes/pledges');
+const deleteRouter = require('./routes/delete');
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,38 +19,23 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-<<<<<<< HEAD
 app.use(fileupload())
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-});
-
-=======
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileupload())
->>>>>>> ae6be967d0710c4845bf45fb35a0890c0b783abd
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/add', addRouter);
 app.use('/reveal', revealRouter);
+app.use('/pledges', pledgesRouter);
+app.use('/delete', deleteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-<<<<<<< HEAD
-
-const port = process.env.PORT || 9000;
-app.listen(port);
-
-=======
->>>>>>> ae6be967d0710c4845bf45fb35a0890c0b783abd
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
