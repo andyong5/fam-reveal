@@ -4,17 +4,28 @@ var router = express.Router();
 
 /* GET home page. */
 router.post("/", async (req, res, next) => {
-  try {
-    const name = req.body.name.toUpperCase();
-    const family = req.body.fam;
-    console.log('add post request')
-    console.log(req.body)
-    const result = await pool.query('INSERT INTO pledges (name, family) VALUES ($1, $2) returning *', [name, family]);
-    console.log(result.rows)
-    res.json(result.rows[0]);
-  } catch (error) {
-      console.error(error.message);
-  }
+  const name = req.body.name.toUpperCase();
+  const family = req.body.fam;
+  console.log("add post request");
+  console.log(req.body);
+  pool.connect((err, client, release) => {
+    if (err) {
+      res.status(400).send({ message: err.stack });
+      return console.error("Error acquiring client", err.stack);
+    }
+    client.query(
+      "INSERT INTO pledges (name, family) VALUES ($1, $2)",
+      [name, family],
+      (err, result) => {
+        release();
+        if (err) {
+          return console.error("Error executing query", err.stack);
+        }
+        console.log(result.rows[0]);
+        res.json(result.rows[0]);
+      }
+    );
+  });
 });
 
 module.exports = router;

@@ -1,19 +1,11 @@
 {
-<<<<<<< HEAD
-  "name": "fam-reveal",
-=======
   "name": "fam-dev",
->>>>>>> fba693be9959b93882a10bd70d909c174251ca5e
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
-<<<<<<< HEAD
-    "body-parser": "^1.19.0",
-=======
->>>>>>> fba693be9959b93882a10bd70d909c174251ca5e
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -21,37 +13,18 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-<<<<<<< HEAD
-    "multer": "^1.4.3",
-    "nes.css": "^2.3.0",
-=======
     "nes.css": "^2.3.0",
     "pg": "^8.7.1",
     "psql": "^0.0.1",
->>>>>>> fba693be9959b93882a10bd70d909c174251ca5e
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "cd backend && node app.js",
-    "heroku-postbuild": "cd frontend && npm run build",
-=======
-    "sqlite3": "^5.0.2",
-=======
->>>>>>> fba693be9959b93882a10bd70d909c174251ca5e
+    "url": "^0.11.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-<<<<<<< HEAD
->>>>>>> ae6be967d0710c4845bf45fb35a0890c0b783abd
-=======
->>>>>>> fba693be9959b93882a10bd70d909c174251ca5e
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

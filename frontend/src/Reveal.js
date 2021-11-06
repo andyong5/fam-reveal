@@ -11,15 +11,15 @@ function Reveal() {
   const data = location.state.params;
 
   useEffect(() => {
-    setName(data.name)
-    setFam(data.fam)
-    if (fam === "Tight") {
+    setName(data.name);
+    setFam(data.family);
+    if (data.family === "Tight") {
       setPokemon("nes-charmander");
     }
-    if (fam === "Loose") {
+    if (data.family === "Loose") {
       setPokemon("nes-squirtle");
     }
-    if (fam === "Close") {
+    if (data.family === "Close") {
       setPokemon("nes-bulbasaur");
     }
   },[]);
