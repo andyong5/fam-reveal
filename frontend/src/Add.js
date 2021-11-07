@@ -61,10 +61,11 @@ function Add() {
       .then((data) => {
         console.log(data.message);
         if (data.message === "Invalid Password") {
-          console.log("got in here");
+          console.log("Invalid Password");
           setError(true);
           setInputClass("nes-input is-error");
         } else {
+          console.log('Set correct password');
           setError(false);
           setInputClass("nes-input");
           setIsLoggedIn(true);

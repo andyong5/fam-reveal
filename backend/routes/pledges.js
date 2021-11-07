@@ -7,14 +7,15 @@ router.get("/", async (req, res, next) => {
     if (err) {
       return console.error("Error acquiring client", err.stack);
     }
-    client.query("SELECT * from pledges", (err, result) => {
+    client.query("SELECT * FROM pledges", (err, result) => {
       release();
       if (err) {
         res.status(400).send({ message: err });
         return console.error("Error executing query", err.stack);
+      } else{
+        console.log(result.rows);
+        res.json(result.rows.reverse());
       }
-      console.log(result.rows);
-      res.json(result.rows.reverse());
     });
   });
 });

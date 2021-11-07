@@ -23,7 +23,7 @@ router.post("/", async (req, res, next) => {
           console.log("Invalid Password");
           res.status(400).send({ message: "Invalid Password" });
         } else {
-          res.json("success");
+          res.json({message: "success"});
         }
       }
     );
