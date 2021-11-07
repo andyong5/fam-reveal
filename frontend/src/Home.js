@@ -11,10 +11,11 @@ function Home() {
   useEffect(() => {
     console.log('got called in useEffect')
     fetch("/pledges")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('got called in useEffect pass');
-        console.log(data);
+      .then((response) => {
+        console.log(response);
+        console.log(response.status);
+        console.log(response.json());
+        console.log(response.text());
       })
       .catch((error) => {
         console.log('got called in useEffect error');
