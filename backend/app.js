@@ -44,6 +44,8 @@ app.use(express.static(path.join(__dirname, '../frontend/build')))
 app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
 })
+const port = process.env.PORT || 9000;
+app.listen(port);
 
 // error handler
 app.use(function(err, req, res, next) {
