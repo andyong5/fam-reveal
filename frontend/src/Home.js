@@ -13,11 +13,12 @@ function Home() {
     fetch("/pledges")
       .then((response) => response.json())
       .then((data) => {
-        console.log('got called in useEffect')
+        console.log('got called in useEffect pass');
         console.log(data);
       })
       .catch((error) => {
-        console.log('got called in useEffect')
+        console.log('got called in useEffect error');
+        console.log(error);
       });
   }, []);
 
