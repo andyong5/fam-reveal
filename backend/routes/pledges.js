@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
         res.status(400).send({ message: err });
         return console.error("Error executing query", err.stack);
       } else{
-        console.log(result.rows);
+        console.log(result);
         res.json(result.rows.reverse());
       }
     });
