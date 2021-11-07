@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import "./Home.css";
 
@@ -7,6 +7,15 @@ function Home() {
   const [error, setError] = useState(false);
   const [inputClass, setInputClass] = useState("nes-input");
   const history = useHistory();
+
+  useEffect(() => {
+    fetch("/pledges")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {});
+  }, []);
 
   const handleSubmission = (event) => {
     event.preventDefault();
