@@ -10,11 +10,11 @@ router.get("/", async (req, res, next) => {
     client.query("SELECT * FROM pledges", (err, result) => {
       release();
       if (err) {
-        res.status(400).send({ message: err });
+        res.status(400).send(err);
         return console.error("Error executing query", err.stack);
       }
       console.log(result);
-      res.json(result.rows);
+      res.json({message: "hi"});
     });
   });
 });

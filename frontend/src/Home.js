@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./Home.css";
 
@@ -9,17 +9,14 @@ function Home() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log('got called in useEffect')
     fetch("/pledges")
-      .then((response) => {
-        console.log(response);
-        console.log(response.status);
-        console.log(response.json());
-        console.log(response.text());
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("got called in useEffect data");
+        console.log(data);
       })
       .catch((error) => {
-        console.log('got called in useEffect error');
-        console.log(error);
+        console.log("got called in useEffect error");
       });
   }, []);
 
@@ -49,10 +46,12 @@ function Home() {
       });
   };
 
-
   return (
     <div>
-      <button class="nes-btn is-success margin" onClick={() => history.push('/add')}>
+      <button
+        class="nes-btn is-success margin"
+        onClick={() => history.push("/add")}
+      >
         Admin Page
       </button>
       <div class="work">
