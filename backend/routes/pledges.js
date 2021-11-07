@@ -17,6 +17,7 @@ router.get("/", async (req, res, next) => {
       res.json({message: "hi"});
     });
   });
+  res.json({message: "hi"});
 });
 
 module.exports = router;
