@@ -5,14 +5,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 10px;
   align-items: center;
 }
 .add_btn {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 30%;
   margin-bottom: 5px;
 }
@@ -29,10 +25,12 @@ td {
   padding: 8px 16px;
   border: 1px solid #ccc;
 }
-.name_input{
-    font-size: 15px;
-    width: 100%;
+#name_field {
+  font-size: 25px;
 }
-.center_fam{
-    text-align: center;
+.center_fam {
+  text-align: center;
+}
+.select {
+  width: 28%;
 }

@@ -5,10 +5,8 @@ function Pledges({ pledges, setPledges }) {
   const deleteRow = name => (event) => {
     let items = pledges.filter(pledge => pledge.name  !== name);
     setPledges(items);
-
     const formData = new FormData();
     formData.append("name", name);
-    console.log(formData);
     fetch("/delete", {
       method: "DELETE",
       "Content-Type": "application/json;charset=utf-8",
@@ -23,13 +21,13 @@ function Pledges({ pledges, setPledges }) {
       });
   };
   const deleteAll = (event) =>{
+    setPledges([])
     fetch("/delete", {
       method: "DELETE"
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        setPledges([])
       })
       .catch((error) => {
         console.log(error);

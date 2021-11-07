@@ -24,7 +24,7 @@ router.delete("/", async (req, res, next) => {
         return console.error("Error acquiring client", err.stack);
       }
       client.query(
-        "delete from pledges where name = $1",
+        "delete from pledges where name = $1 returning *",
         [req.body.name],
         (err, result) => {
           release();

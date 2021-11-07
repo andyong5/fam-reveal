@@ -11,6 +11,7 @@ const revealRouter = require('./routes/reveal');
 const addRouter = require('./routes/add');
 const pledgesRouter = require('./routes/pledges');
 const deleteRouter = require('./routes/delete');
+const loginRouter = require('./routes/login');
 var app = express();
 
 // view engine setup
@@ -30,7 +31,7 @@ app.use('/add', addRouter);
 app.use('/reveal', revealRouter);
 app.use('/pledges', pledgesRouter);
 app.use('/delete', deleteRouter);
-
+app.use('/login', loginRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
