@@ -18,13 +18,20 @@ function Add() {
   }
 
   useEffect(() => {
-    fetch("/pledges")
+    fetch("/pledges", {
+      headers : {'Content-type': 'application/json'},
+      method: "GET",
+      'credentials': 'include'
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        console.log('got in useEffect')
         setPledges(data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const handleSubmission = (event) => {
