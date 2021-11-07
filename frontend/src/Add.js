@@ -17,7 +17,8 @@ function Add() {
     history.push("/");
   }
 
-  useEffect(() => {
+  useEffect((event) => {
+    event.preventDefault();
     fetch("/pledges", {
       headers : {'Content-type': 'application/json'},
       method: "GET",
