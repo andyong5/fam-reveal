@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
-import Reveal from "./Reveal"
+import Reveal from "./Reveal";
+import Add from './Add';
 
 function App() {
   const [appName, setAppName] = useState("Andy Nguyen");
@@ -15,11 +16,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/reveal">
+        <Route path="/add" exact>
+          <Add />
+        </Route>
+        <Route path="/reveal" exact>
           <Reveal  appName={appName} appFam={appFam}/>
         </Route>
-        <Route path="/">
+        <Route path="/" exact>
           <Home setAppName={setAppName} setAppFam={setAppFam}/>
+        </Route>
+        <Route path="/" render={() => <div>404</div>}>
         </Route>
       </Switch>
     </Router>

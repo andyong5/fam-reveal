@@ -1,0 +1,36 @@
+.narrow {
+  width: 250px;
+}
+.add_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.add_btn {
+  margin-top: 30px;
+  width: 30%;
+  margin-bottom: 5px;
+}
+.tableFixHead {
+  overflow-y: auto;
+  height: 350px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+}
+#name_field {
+  font-size: 25px;
+}
+.center_fam {
+  text-align: center;
+}
+.select {
+  width: 28%;
+}

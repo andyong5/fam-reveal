@@ -1,41 +1,33 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const pool = require("./db");
 
-router.post('/', function(req, res, next) { 
-    
-    const fams = 
-    {
-        'ALEC MARISCAL': 'Tight',
-        'CALVIN LIN': 'Tight',
-        'JEFFERY ZHU': 'Tight',
-        'JOEY SIU': 'Tight',
-        'KOJI LO': 'Tight',
-        'MANDY XIA': 'Tight',
-        'AUDREY YEUNG': 'Close',
-        'AMBERLY HACKMANN': 'Close',
-        'NATHAN CHAN': 'Close',
-        'LANI LAM': 'Close',
-        'LOUIS GUO': 'Close',
-        'CRYSTAL DANG': 'Close',
-        'AMY NGUYEN': 'Loose',
-        'CHRISTOPHER HACKETT': 'Loose',
-        'ERICA TAM': 'Loose',
-        'ISABELLA LEE': 'Loose',
-        'JULIAN ATALIT': 'Loose',
-        'KELLY ZHU': 'Loose',
-        'SABRINA CHANG': 'Loose',
-        'LUKE CHEN': 'Loose',
-        'SEAN ARALAR': 'Loose'
-    } 
-    var name = req.body.name;
-    var name = name.toUpperCase();
-    console.log(name);
-    console.log('got in here');
-    if(!fams.hasOwnProperty(name)){
-        console.log('Invalid name')
-        res.status(400).send({message: 'Invalid name'});
+router.post("/", function (req, res, next) {
+  var name = req.body.name.toUpperCase();
+  console.log(name);
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error("Error acquiring client", err.stack);
     }
-    res.json({'name':name, 'fam': fams[name]})
+    client.query(
+      "select name, family from pledges where name = $1 returning *",
+      [name],
+      (err, result) => {
+        release();
+        if (err) {
+          res.status(500).send({ message: err.stack });
+          return console.error("Error executing query", err.stack);
+        }
+        if (result.rowCount == 0) {
+          console.log("Invalid Name");
+          res.status(400).send({ message: "Invalid Name" });
+        } else {
+          console.log(result.rows[0]);
+          res.json(result.rows[0]);
+        }
+      }
+    );
+  });
 });
 
 module.exports = router;
