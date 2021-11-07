@@ -10,7 +10,7 @@ router.post("/", function (req, res, next) {
       return console.error("Error acquiring client", err.stack);
     }
     client.query(
-      "select name, family from pledges where name = $1 returning *",
+      "select name, family from pledges where name = $1",
       [name],
       (err, result) => {
         release();
