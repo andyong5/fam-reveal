@@ -9,6 +9,7 @@ function Home() {
   const history = useHistory();
 
   useEffect(() => {
+    console.log('got called in useEffect')
     fetch("/pledges")
       .then((response) => response.json())
       .then((data) => {
