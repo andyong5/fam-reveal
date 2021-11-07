@@ -4,6 +4,7 @@ import "./Pledges.css";
 function Pledges({ pledges, setPledges }) {
   useEffect(() => {
   }, [pledges]);
+
   const deleteRow = name => (event) => {
     let items = pledges.filter(pledge => pledge.name  !== name);
     setPledges(items);
