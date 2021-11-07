@@ -40,9 +40,9 @@ app.use(function(req, res, next) {
 // app.use(express.static(path.join(__dirname, 'public')));
 
 //for production, comment this section out if working dev
-app.use(express.static(path.join(__dirname, '../frontend/build')))
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.get('*', (req,res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 })
 const port = process.env.PORT || 9000;
 app.listen(port);
