@@ -17,7 +17,15 @@ function Add() {
     history.push("/");
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetch("/pledges")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setPledges(data);
+      })
+      .catch((error) => {});
+  }, []);
 
   const handleSubmission = (event) => {
     event.preventDefault();
@@ -61,13 +69,6 @@ function Add() {
           setError(false);
           setInputClass("nes-input");
           setIsLoggedIn(true);
-          fetch("/pledges")
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-              setPledges(data);
-            })
-            .catch((error) => {});
         }
       })
       .catch((error) => {
