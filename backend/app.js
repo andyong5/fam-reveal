@@ -12,7 +12,7 @@ const addRouter = require('./routes/add');
 const pledgesRouter = require('./routes/pledges');
 const deleteRouter = require('./routes/delete');
 const loginRouter = require('./routes/login');
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
