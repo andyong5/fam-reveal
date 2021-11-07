@@ -17,6 +17,7 @@ function Home() {
       })
       .catch((error) => {
         console.log("got called in useEffect error");
+        console.log(error)
       });
   }, []);
 
