@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
         return console.error("Error executing query", err.stack);
       }
       console.log(result);
-      res.json({message: result});
+      res.json(result.rows);
     });
   });
 });
